@@ -1,6 +1,24 @@
 html {
 height: 100%;
 }
+.btn {
+    background-color: #FF8F00;
+    border: none;
+    border-radius:28px;
+    color: black;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.back{
+    position: relative;
+    top: -90px;
+}
 
 body {
 padding: 0;
@@ -18,6 +36,9 @@ display: none;
 div.stat {
     float: left;
     border-style: inset;
+    font-size: 20px;
+      font-weight: bold;
+    background: brown;
 }
 
 #day {
@@ -127,9 +148,9 @@ background-color: white;
 float: left;
 width: 350px;
 margin: 10px;
-height: 150px;
+height: 300px;
 padding: 10px;
-font-size: 12px;
+font-size: 13px;
 overflow-y: scroll;
 }
 
@@ -173,6 +194,6 @@ float: left;
 background-color: white;
 margin: 10px;
 padding: 10px;
-height: 60px;
-width: 150px;
+height: 100px;
+width: 250px;
 }

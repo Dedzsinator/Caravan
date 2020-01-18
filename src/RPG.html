@@ -4,33 +4,34 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title></title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/caravan.css">
   </head>
   <body>
-    <h1 style="text-align: center">404 - Az oldal nem található!</h1>
-    <h3 style="text-align: center">Úgy tűnik, az oldal amit keresel, nem létezik. Miért ne probálnád ki ezt a kis játékot?</h3>
+    <h1 style="text-align: center">Caraván!</h1>
+    <h3 style="text-align: center">A cél, hogy a caraván hazaérjen épségben!</h3>
+    <a href="index.html" class="btn back" type="button">Vissza a Főoldalra</a>
     <div id="home"></div>
     <div id="journey">
       <div id="stats-area">
-        <div class="stat">Nap<img src="day.png" id="day"> <span id="stat-day" class="stat-value"></span></div>
-        <div class="stat">Távolság <img src="wheel.png" id="dist"> <span id="stat-distance" class="stat-value"></span></div>
-        <div class="stat">Csapattagok <img src="crew.png" id="crew"> <span id="stat-crew" class="stat-value"></span></div>
-        <div class="stat">Ökrök <img src="ox.png" id="ox"> <span id="stat-oxen" class="stat-value"></span></div>
-        <div class="stat">Étel <img src="food.png" id="food"> <span id="stat-food" class="stat-value"></span></div>
-        <div class="stat">Pénz <img src="coin.png" id="coin"> <span id="stat-money" class="stat-value"></span></div>
-        <div class="stat">Tűzerő <img src="guns.png" id="fire"> <span id="stat-firepower" class="stat-value"></span></div>
-        <div class="stat">Súly <img src="heavy.png" id="heavy"> <span id="stat-weight" class="stat-value"></span><span id="stat-capacity" class="stat-value"></span></div>
+        <div class="stat">Nap<img src="img/caravan/day.png" id="day"> <span id="stat-day" class="stat-value"></span></div>
+        <div class="stat">Távolság <img src="img/caravan/wheel.png" id="dist"> <span id="stat-distance"class="stat-value"></span></div>
+        <div class="stat">Csapattagok <img src="img/caravan/crew.png" id="crew"> <span id="stat-crew"class="stat-value"></span></div>
+        <div class="stat">Ökrök <img src="img/caravan/ox.png" id="ox"> <span id="stat-oxen" class="stat-value"></span></div>
+        <div class="stat">Étel <img src="img/caravan/food.png" id="food"> <span id="stat-food"class="stat-value"></span></div>
+        <div class="stat">Pénz <img src="img/caravan/coin.png" id="coin"> <span id="stat-money"class="stat-value"></span></div>
+        <div class="stat">Tűzerő <img src="img/caravan/guns.png" id="fire"> <span id="stat-firepower"class="stat-value"></span></div>
+        <div class="stat">Súly <img src="img/caravan/heavy.png" id="heavy"> <span id="stat-weight"class="stat-value"></span><span id="stat-capacity" class="stat-value"></span></div>
       </div>
       <div class="updates-area" id="updates-area"></div>
       <div id="shop" class="hidden">
         <div id="prods">
         </div>
-        <button>Bolt elhagyása</button>
+        <button class="btn exit">Bolt elhagyása</button>
       </div>
       <div id="attack" class="hidden">
         <div id="attack-description"></div>
-        <button id="fight">Harc!</button>
-        <button id="runaway">Visszavonulás</button>
+        <button class="btn" id="fight">Harc!</button>
+        <button class="btn" id="runaway">Visszavonulás</button>
       </div>
       <div id="progress-area">
 
@@ -40,6 +41,6 @@
     </div>
 
     <div id="event"></div>
-	<script src="main.js"></script>
+	<script src="js/caravan.js"></script>
   </body>
 </html>
