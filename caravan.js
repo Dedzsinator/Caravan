@@ -9,6 +9,160 @@
      value: -3,
      text: 'Megromlott az étel. Veszteség: '
    },
+                             
+                             
+                             
+  {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'oxen',
+     value: 3,
+     text: 'Új ökrök születtek a Caravánban! '
+   },                           
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'oxen',
+     value: 1,
+     text: 'Találtál egy elkóborolt ökröt! '
+   },                          
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'food',
+     value: 30,
+     text: 'Találtál egy nemrég óta halott szarvast! '
+   },                          
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'food',
+     value: 20,
+     text: 'Elhagyott madártojásokra bukkantál'
+   },
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'food',
+     value: 10,
+     text: 'A kocsi kereke megakadt egy ehető gyökérben! '
+   },                          
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'food',
+     value: 10,
+     text: 'Mézet találtál az egyik fán! '
+   },
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'money',
+     value: 50,
+     text: 'Észrevettél egy csillogó követ a fa alatt! '
+   }, 
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'money',
+     value: 30,
+     text: 'Egy holttestet találtál az út szélén, pénzzel a zsebében! '
+   },
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'firepower',
+     value: 3,
+     text: 'Az út szélén áll egy elhagyott kocsi tele puskaporral! '
+   }, 
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'firepower',
+     value: 2,
+     text: 'Egy üres táborban találtál fegyvereket és lőszert! '
+   },
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'firepower',
+     value: 3,
+     text: 'Egy lőszereskocsiról leesett egy láda fegyver! '
+   },                          
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'crew',
+     value: 5,
+     text: 'Találtál egy csapat túlélőt az erdőben! '
+   }, 
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'crew',
+     value: 6,
+     text: 'Vándorok csatlakoztak a Caravánodhoz! '
+   },                          
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'crew',
+     value: 4,
+     text: 'Sebesült katonák csatlakoztak a csapatodhoz! '
+   },                                                        
+ /*
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'Folyadék',
+     value: 30,
+     text: 'Egy forráshoz értél! '
+   },
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'Folyadék',
+     value: 20,
+     text: 'Találtál az erdőben egy kutat '
+   },
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'Folyadék',
+     value: 10,
+     text: 'Elkezdett esni az eső! '
+   },
+   {
+     type: 'STAT-CHANGE',
+     notification: 'positive',
+     stat: 'Folyadék',
+     value: 15,
+     text: 'Találtál egy hordó friss vizet! '
+   },
+   {
+     type: 'STAT-CHANGE',
+     notification: 'negative',
+     stat: 'Folyadék',
+     value: -20,
+     text: 'A vízkészleted megfertőződött! '
+   },
+   {
+     type: 'STAT-CHANGE',
+     notification: 'negative',
+     stat: 'Folyadék',
+     value: 15,
+     text: 'Egy vizeshordó leesett a kocsiról! '
+   },
+   {
+     type: 'STAT-CHANGE',
+     notification: 'negative',
+     stat: 'Folyadék',
+     value: 30,
+     text: 'Szárazság! A vízkészleted alaposan megcsappant! '
+   },   
+ */                          
+                             
+                             
    {
      type: 'STAT-CHANGE',
      notification: 'negative',
@@ -127,7 +281,7 @@
      stat: 'oxen',
      value: 1,
      text: 'Találtál egy vad ökröt, így van: '
-   },
+   },                                                                                    
    /*
    {
      type: 'SHOP',
@@ -156,6 +310,34 @@
      ]
    },
    */
+                             
+    {
+     type: 'SHOP',
+     notification: 'neutral',
+     text: 'Találkoztál egy másik karavánnal!',
+     products: [{
+         item: 'étel',
+         qty: 20,
+         price: 30
+       },
+       {
+         item: 'ökör',
+         qty: 1,
+         price: 100
+       },
+       {
+         item: 'tűzerő',
+         qty: 1,
+         price: 30
+       },
+       {
+         item: 'csapattag',
+         qty: 5,
+         price: 40
+       }
+     ]
+   },                          
+                             
    {
      type: 'SHOP',
      notification: 'neutral',
