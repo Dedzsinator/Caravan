@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caravan - Adventure Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Girassol&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/caravan.css">
+  <link rel="icon" href="./img/core-img/favicon.ico">
+</head>
+
+<body>
+  <div class="top">
+    <img class="title" src="./img/caravan/title.png" alt="Caravan Game Title">
+    <a href="../index.html" class="btn back">Vissza a Főoldalra</a>
+    <button type="button" class="pause" id="playpausebtn" aria-label="Play/Pause Audio"></button>
+    <img class="lower" src="./img/caravan/lower_volume.png" alt="Lower Volume">
+    <input class="volume" id="volume" type="range" min="0" max="100" value="50" aria-label="Volume Control">
+    <img class="higher" src="./img/caravan/increase_volume.png" alt="Increase Volume">
+  </div>
+
+  <div id="journey">
+    <div id="stats-area">
+      <div class="stat">
+        Nap<img src="./img/caravan/day.png" id="day" alt="Day"> 
+        <span id="stat-day" class="stat-value"></span>
+      </div>
+      <div class="stat">
+        Távolság <img src="./img/caravan/wheel.png" id="dist" alt="Distance"> 
+        <span id="stat-distance" class="stat-value"></span>
+      </div>
+      <div class="stat">
+        Csapattagok <img src="./img/caravan/crew.png" id="crew" alt="Crew"> 
+        <span id="stat-crew" class="stat-value"></span>
+      </div>
+      <div class="stat">
+        Ökrök <img src="./img/caravan/ox.png" id="ox" alt="Oxen"> 
+        <span id="stat-oxen" class="stat-value"></span>
+      </div>
+      <div class="stat">
+        Étel <img src="./img/caravan/food.png" id="food" alt="Food"> 
+        <span id="stat-food" class="stat-value"></span>
+      </div>
+      <div class="stat">
+        Folyadék <img src="./img/caravan/liquid.png" id="liquid" alt="Liquid"> 
+        <span id="stat-liquid" class="stat-value"></span>
+      </div>
+      <div class="stat">
+        Pénz <img src="./img/caravan/coin.png" id="coin" alt="Money"> 
+        <span id="stat-money" class="stat-value"></span>
+      </div>
+      <div class="stat">
+        Tűzerő <img src="./img/caravan/guns.png" id="fire" alt="Firepower"> 
+        <span id="stat-firepower" class="stat-value"></span>
+      </div>
+      <div class="stat">
+        Súly <img src="./img/caravan/heavy.png" id="heavy" alt="Weight"> 
+        <span id="stat-weight" class="stat-value"></span>
+      </div>
+      <div id="inv-btn" class="inventory-button" title="Open Inventory"></div>
+    </div>
+
+    <div class="updates-area" id="updates-area"></div>
+
+    <div id="character-info" class="character-info hidden">
+      <h3>Character Stats</h3>
+      <div class="character-stats"></div>
+    </div>
+
+    <div id="inventory" class="hidden">
+      <div class="inventory-container">
+        <div class="character-display">
+          <img src="./img/caravan/player.png" alt="Character" class="character-image">
+          
+          <!-- Equipment Slots -->
+          <div class="equipment-slots">
+            <div class="equipment-slot helmet-slot drop-zone" 
+                 data-slot-type="equipment" 
+                 data-slot-index="helmet" 
+                 title="Helmet Slot"></div>
+            
+            <div class="equipment-slot armor-slot drop-zone" 
+                 data-slot-type="equipment" 
+                 data-slot-index="bodyarmour" 
+                 title="Armor Slot"></div>
+            
+            <div class="equipment-slot boots-slot drop-zone" 
+                 data-slot-type="equipment" 
+                 data-slot-index="boots" 
+                 title="Boots Slot"></div>
+            
+            <div class="equipment-slot weapon-slot drop-zone" 
+                 data-slot-type="equipment" 
+                 data-slot-index="weapon" 
+                 title="Weapon Slot"></div>
+            
+            <div class="equipment-slot glove-slot drop-zone" 
+                 data-slot-type="equipment" 
+                 data-slot-index="glove" 
+                 title="Glove Slot"></div>
+            
+            <div class="equipment-slot amulet-slot drop-zone" 
+                 data-slot-type="equipment" 
+                 data-slot-index="amulet" 
+                 title="Amulet Slot"></div>
+            
+            <div class="equipment-slot ring-slot drop-zone" 
+                 data-slot-type="equipment" 
+                 data-slot-index="ring" 
+                 title="Ring Slot"></div>
+            
+            <div class="equipment-slot belt-slot drop-zone" 
+                 data-slot-type="equipment" 
+                 data-slot-index="belt" 
+                 title="Belt Slot"></div>
+          </div>
+        </div>
+        
+        <!-- Backpack Grid -->
+        <div class="backpack-grid">
+          <h3>Backpack</h3>
+          <div class="backpack-slots">
+            <!-- Generate 24 backpack slots -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="shop" class="hidden">
+      <div id="prods"></div>
+      <button type="button" class="btn exit">Bolt elhagyása</button>
+    </div>
+
+    <div id="attack" class="hidden">
+      <div id="attack-description"></div>
+      <button type="button" class="btn" id="fight">Harc!</button>
+      <button type="button" class="btn" id="runaway">Visszavonulás</button>
+    </div>
+
+    <div id="good" class="hidden">
+      <div id="good-description"></div>
+      <button type="button" class="btn" id="accept">Elfogadás</button>
+      <button type="button" class="btn" id="decline">Elutasítás</button>
+    </div>
+
+    <div id="choice" class="hidden">
+      <div id="choice-description"></div>
+      <button type="button" class="btn" id="yes">Elfogadás</button>
+      <button type="button" class="btn" id="no">Elutasítás</button>
+    </div>
+
+    <div id="progress-area">
+      <img id="caravan" src="./img/caravan/caravan.png" alt="Caravan">
+      <img id="trees" src="./img/caravan/road.png" alt="Road Background">
+    </div>
+  </div>
+
+  <script type="module" src="./js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Caravan Game Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f0f0f0;
+    }
+    .test-section {
+      background: white;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    #console {
+      background: #000;
+      color: #0f0;
+      padding: 10px;
+      height: 300px;
+      overflow-y: auto;
+      font-family: monospace;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Caravan Game Test Page</h1>
+  
+  <div class="test-section">
+    <h2>Module Loading Test</h2>
+    <div id="module-status">Testing modules...</div>
+    <div id="console"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Game Controls</h2>
+    <button onclick="initGame()">Initialize Game</button>
+    <button onclick="testInventory()">Test Inventory</button>
+    <button onclick="showGameState()">Show Game State</button>
+    <button onclick="clearConsole()">Clear Console</button>
+  </div>
+
+  <div class="test-section">
+    <h2>Quick Links</h2>
+    <a href="index.html">Go to Main Game</a>
+  </div>
+
+  <script type="module">
+    let game = null;
+    
+    function log(message, type = 'info') {
+      const console = document.getElementById('console');
+      const timestamp = new Date().toLocaleTimeString();
+      const color = type === 'error' ? '#f00' : type === 'success' ? '#0f0' : '#fff';
+      console.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+      console.scrollTop = console.scrollHeight;
+    }
+
+    window.log = log;
+    window.clearConsole = () => {
+      document.getElementById('console').innerHTML = '';
+    };
+
+    // Test module imports
+    try {
+      log('Testing module imports...', 'info');
+      
+      Promise.all([
+        import('./js/config.js'),
+        import('./js/character.js'),
+        import('./js/caravan.js'),
+        import('./js/inventory.js'),
+        import('./js/ui.js'),
+        import('./js/events.js'),
+        import('./js/audio.js'),
+        import('./js/game.js')
+      ]).then(modules => {
+        log('All modules loaded successfully!', 'success');
+        document.getElementById('module-status').innerHTML = '<span class="success">✓ All modules loaded</span>';
+        
+        // Test basic class instantiation
+        const [config, character, caravan, inventory, ui, events, audio, gameModule] = modules;
+        
+        log('Testing class instantiation...', 'info');
+        
+        try {
+          const testCharacter = new character.Character();
+          log('✓ Character class works', 'success');
+          
+          const testCaravan = new caravan.CaravanManager();
+          log('✓ CaravanManager class works', 'success');
+          
+          log('Basic tests passed!', 'success');
+        } catch (error) {
+          log('Class instantiation error: ' + error.message, 'error');
+        }
+        
+      }).catch(error => {
+        log('Module loading error: ' + error.message, 'error');
+        document.getElementById('module-status').innerHTML = '<span class="error">✗ Module loading failed</span>';
+      });
+      
+    } catch (error) {
+      log('Initial error: ' + error.message, 'error');
+    }
+
+    window.initGame = async () => {
+      try {
+        log('Initializing game...', 'info');
+        const gameModule = await import('./js/game.js');
+        game = new gameModule.Game();
+        log('Game initialized successfully!', 'success');
+        window.testGame = game;
+      } catch (error) {
+        log('Game initialization error: ' + error.message, 'error');
+      }
+    };
+
+    window.testInventory = () => {
+      if (!game) {
+        log('Please initialize game first!', 'error');
+        return;
+      }
+      
+      try {
+        log('Testing inventory system...', 'info');
+        log('Character backpack size: ' + game.character.backpack.length, 'info');
+        log('Equipped items: ' + Object.keys(game.character.equippedItems).filter(k => game.character.equippedItems[k]).length, 'info');
+        game.inventory.toggleInventory();
+        log('Inventory toggled successfully!', 'success');
+      } catch (error) {
+        log('Inventory test error: ' + error.message, 'error');
+      }
+    };
+
+    window.showGameState = () => {
+      if (!game) {
+        log('Please initialize game first!', 'error');
+        return;
+      }
+      
+      log('=== GAME STATE ===', 'info');
+      log('Caravan stats: ' + JSON.stringify(game.caravan.stats, null, 2), 'info');
+      log('Character level: ' + game.character.stats.level, 'info');
+      log('Character XP: ' + game.character.stats.xp, 'info');
+      log('Game active: ' + game.gameActive, 'info');
+      log('==================', 'info');
+    };
+  </script>
+</body>
+</html>
