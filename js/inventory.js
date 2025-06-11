@@ -13,10 +13,18 @@ export class InventoryManager {
   }
 
   initializeInventory() {
-    // Add some starting items
+    // Add some starting items for testing
     this.character.addItemToBackpack(ITEMS.redCloth);
     this.character.addItemToBackpack(ITEMS.bearHead);
     this.character.addItemToBackpack(ITEMS.ironSword);
+    this.character.addItemToBackpack(ITEMS.steelSword);
+    this.character.addItemToBackpack(ITEMS.chainmail);
+    this.character.addItemToBackpack(ITEMS.ironHelmet);
+    this.character.addItemToBackpack(ITEMS.leatherGloves);
+    this.character.addItemToBackpack(ITEMS.reinforcedBelt);
+    this.character.addItemToBackpack(ITEMS.elfBoots);
+    this.character.addItemToBackpack(ITEMS.royalRing);
+    this.character.addItemToBackpack(ITEMS.magicAmulet);
   }
 
   setupEventListeners() {
@@ -261,17 +269,17 @@ export class InventoryManager {
 
   renderEquipmentSlots() {
     const equipmentSlots = {
-      helmet: 0,
-      bodyarmour: 1,
-      boots: 2,
-      weapon: 3,
-      glove: 4,
-      amulet: 5,
-      ring: 6,
-      belt: 7
+      helmet: 'helmet',
+      bodyarmour: 'bodyarmour', 
+      boots: 'boots',
+      weapon: 'weapon',
+      glove: 'glove',
+      amulet: 'amulet',
+      ring: 'ring',
+      belt: 'belt'
     };
 
-    Object.entries(equipmentSlots).forEach(([slotType, index]) => {
+    Object.entries(equipmentSlots).forEach(([slotType, slotKey]) => {
       const slotElement = document.querySelector(`[data-slot-type="equipment"][data-slot-index="${slotType}"]`);
       if (!slotElement) return;
 
@@ -343,5 +351,22 @@ export class InventoryManager {
 
   getCharacterStats() {
     return this.character.stats;
+  }
+
+  // Debug method to add test items
+  addTestItems() {
+    Object.values(ITEMS).forEach(item => {
+      if (item.name && item.name !== 'Empty') {
+        this.character.addItemToBackpack(item);
+      }
+    });
+    this.renderInventory();
+  }
+
+  // Debug method to trigger random event
+  triggerRandomEvent() {
+    if (window.caravanGame && window.caravanGame.eventManager) {
+      window.caravanGame.eventManager.generateEvent();
+    }
   }
 }

@@ -22,7 +22,7 @@ export class Game {
     this.character = new Character();
     this.ui = new UIManager(this.caravan, this.character);
     this.inventory = new InventoryManager(this.character, this.ui);
-    this.eventManager = new EventManager(this.caravan, this.ui, this);
+    this.eventManager = new EventManager(this.caravan, this.ui, this, this.inventory);
     this.audioManager = new AudioManager();
 
     // Set up cross-references

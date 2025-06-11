@@ -530,6 +530,69 @@ body {
   transition: left 0.5s ease;
 }
 
+/* Debug Panel */
+.debug-panel {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 10000;
+  font-family: Arial, sans-serif;
+}
+
+.debug-panel h4 {
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+
+.debug-panel button {
+  margin: 2px;
+  padding: 5px 8px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.debug-panel button:hover {
+  background: #45a049;
+}
+
+/* Drag and Drop Visual Feedback */
+.drop-zone {
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.drop-zone.drag-hover {
+  border: 2px solid #4CAF50;
+  background-color: rgba(76, 175, 80, 0.1);
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.draggable-item {
+  cursor: grab;
+  transition: all 0.2s ease;
+}
+
+.draggable-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.draggable-item.dragging {
+  opacity: 0.7;
+  transform: rotate(5deg) scale(0.95);
+  cursor: grabbing;
+  z-index: 1000;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   #inventory {

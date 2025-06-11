@@ -157,6 +157,15 @@
       <img id="caravan" src="./img/caravan/caravan.png" alt="Caravan">
       <img id="trees" src="./img/caravan/road.png" alt="Road Background">
     </div>
+
+    <!-- Debug Panel -->
+    <div id="debug-panel" class="debug-panel">
+      <h4>Debug Tools</h4>
+      <button type="button" onclick="window.caravanGame?.inventory?.addTestItems()">Add Test Items</button><br>
+      <button type="button" onclick="window.caravanGame?.eventManager?.generateEvent()">Trigger Event</button><br>
+      <button type="button" onclick="window.caravanGame?.inventory?.renderInventory()">Refresh Inventory</button><br>
+      <button type="button" onclick="document.getElementById('debug-panel').style.display='none'">Hide</button>
+    </div>
   </div>
 
   <script type="module" src="./demo.js"></script>
