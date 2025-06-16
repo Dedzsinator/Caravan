@@ -1,0 +1,29 @@
+{
+  "name": "caravan",
+  "version": "2.0.0", 
+  "description": "A completely rewritten Caravan adventure game built with Svelte 5, featuring reactive state management, modern component architecture, drag-and-drop inventory system, and enhanced gameplay mechanics.",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dedzsinator/Caravan.git"
+  },
+  "keywords": ["game", "adventure", "caravan", "svelte", "svelte5", "javascript", "reactive", "inventory", "drag-drop"],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dedzsinator/Caravan/issues"
+  },
+  "homepage": "https://github.com/Dedzsinator/Caravan#readme",
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.1.0",
+    "svelte": "^5.34.3",
+    "vite": "^6.3.5"
+  }
+}
